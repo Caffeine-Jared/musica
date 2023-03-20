@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
+import useChangeBackgroundColor from "./useChangeBackgroundColor";
 
 const videos = [
   {
@@ -23,46 +25,67 @@ const albumArt = [
   {
     id: 1,
     title: "Album Art 1",
-    src: "musica-web/music-photos/chikoi-the-maid.jpg"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
   },
   {
     id: 2,
     title: "Album Art 2",
-    src: "https://via.placeholder.com/150"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
   },
   {
     id: 3,
     title: "Album Art 3",
-    src: "https://via.placeholder.com/150"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
   }
 ];
 
 function App() {
+  const { backgroundColor, videoRef, handlePlay, handlePause } =
+    useChangeBackgroundColor();
+
   return (
-    <div>
-      <h1>My Videos and Album Art Site</h1>
-      <div>
-        {videos.map((video) => (
-          <div key={video.id} className="video">
-            <iframe
-              width="560"
-              height="315"
-              src={video.src}
-              title={video.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        ))}
-      </div>
-      <div>
-        {albumArt.map((art) => (
-          <div key={art.id} className="album-art">
-            <img src={art.src} alt={art.title} />
-          </div>
+    <div style={{ backgroundColor }}>
+      <h1 className="center">Musica</h1>
+      <div className="center-container">
+        {videos.map((video, index) => (
+          <React.Fragment key={video.id}>
+            <div className="item-container">
+              <div className="album-art">
+                <img
+                  src={albumArt[index].src}
+                  alt={albumArt[index].title}
+                  onError={(e) =>
+                    (e.target.src = "https://via.placeholder.com/150")
+                  }
+                  style={{ maxWidth: "200px", maxHeight: "200px" }}
+                />
+                <button onClick={() => handlePlay(index)}>Play</button>
+              </div>
+              <div className="video">
+                <iframe
+                  width="560"
+                  height="315"
+                  src={video.src}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  ref={videoRef}
+                  onPlay={handlePlay}
+                  onPause={handlePause}
+                ></iframe>
+              </div>
+              <div className="color">
+                <div
+                  className="color-button"
+                  style={{ backgroundColor: backgroundColor }}
+                ></div>
+              </div>
+            </div>
+          </React.Fragment>
         ))}
       </div>
     </div>
+
   );
 }
 
