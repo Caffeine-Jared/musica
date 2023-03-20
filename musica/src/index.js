@@ -25,17 +25,17 @@ const albumArt = [
   {
     id: 1,
     title: "Album Art 1",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
   },
   {
     id: 2,
     title: "Album Art 2",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
   },
   {
     id: 3,
     title: "Album Art 3",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid.jpg?raw=true"
+    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
   }
 ];
 
