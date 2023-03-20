@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import useChangeBackgroundColor from "./useChangeBackgroundColor";
@@ -40,8 +40,9 @@ const albumArt = [
 ];
 
 function App() {
-  const { backgroundColor, videoRef, handlePlay, handlePause } =
-    useChangeBackgroundColor();
+  const videoRefs = useMemo(() => videos.map(() => React.createRef()), []);
+  const { backgroundColor, handlePlay, handlePause, handleButtonClick } =
+    useChangeBackgroundColor(videoRefs);
 
   return (
     <div style={{ backgroundColor }}>
@@ -59,7 +60,7 @@ function App() {
                   }
                   style={{ maxWidth: "200px", maxHeight: "200px" }}
                 />
-                <button onClick={() => handlePlay(index)}>Play</button>
+                <button onClick={() => handleButtonClick(index)}>Play</button>
               </div>
               <div className="video">
                 <iframe
@@ -69,9 +70,7 @@ function App() {
                   title={video.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  ref={videoRef}
-                  onPlay={handlePlay}
-                  onPause={handlePause}
+                  ref={videoRefs[index]}
                 ></iframe>
               </div>
               <div className="color">
@@ -85,8 +84,8 @@ function App() {
         ))}
       </div>
     </div>
-
   );
 }
+
 
 ReactDOM.render(<App />, document.getElementById("root"));
