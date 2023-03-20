@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+  font-family: Arial, sans-serif;
+}
+
+.video {
+  margin-right: 20px;
+}
+
+.album-art {
+  margin-left: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .video,
+  .album-art {
+    margin: 0;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+}
