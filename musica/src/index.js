@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div style={{ backgroundColor }}>
-      <h1 className="center">Musica</h1>
+      <title className="center">Musica</title>
       <div className="center-container">
         {videos.map((video, index) => (
           <React.Fragment key={video.id}>
@@ -60,7 +60,7 @@ function App() {
                   }
                   style={{ maxWidth: "200px", maxHeight: "200px" }}
                 />
-                <button onClick={() => handleButtonClick(index)}>Play</button>
+                <button class='button' onClick={() => handleButtonClick(index)}>Play</button>
               </div>
               <div className="video">
                 <iframe
