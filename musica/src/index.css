@@ -31,10 +31,20 @@ body {
 .album-art img:hover {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 1);
 }
+.album-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .video {
   margin-left: 10px;
   margin-right: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 iframe {

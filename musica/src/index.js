@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div style={{ backgroundColor }}>
-      <title className="center">Musica</title>
+      <h1 className="center">Musica</h1>
       <div className="center-container">
         {videos.map((video, index) => (
           <React.Fragment key={video.id}>
