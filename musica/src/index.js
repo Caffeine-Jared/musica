@@ -2,42 +2,7 @@ import React, { useState, useRef, useMemo} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import useChangeBackgroundColor from "./useChangeBackgroundColor";
-
-const videos = [
-  {
-    id: 1,
-    title: "Video 1",
-    src: "https://www.youtube.com/embed/VItmgwq8D9s"
-  },
-  {
-    id: 2,
-    title: "Video 2",
-    src: "https://www.youtube.com/embed/qQOIMMfOo7g"
-  },
-  {
-    id: 3,
-    title: "Video 3",
-    src: "https://www.youtube.com/embed/H55ta3AsiAw"
-  }
-];
-
-const albumArt = [
-  {
-    id: 1,
-    title: "Album Art 1",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
-  },
-  {
-    id: 2,
-    title: "Album Art 2",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
-  },
-  {
-    id: 3,
-    title: "Album Art 3",
-    src: "https://github.com/Caffeine-Jared/musica/blob/master/musica-web/music-photos/chikoi-the-maid-leaving-reality.jpg?raw=true"
-  }
-];
+import {videos, albumArt} from "./getVideos";
 
 function App() {
   const videoRefs = useMemo(() => videos.map(() => React.createRef()), []);
@@ -46,7 +11,7 @@ function App() {
 
   return (
     <div style={{ backgroundColor }}>
-      <h1 className="center">Musica</h1>
+      <h1 className="center">Musica De La Web</h1>
       <div className="center-container">
         {videos.map((video, index) => (
           <React.Fragment key={video.id}>
